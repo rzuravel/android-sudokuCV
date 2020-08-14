@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".board.SudokuBoxFragment">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.example.android.rzuravel.sudokucv.board.SudokuBoxViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/sudoku_box"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="@{() -> viewModel.onClick()}">
+
+        <TextView
+            android:id="@+id/hint_1"
+            style="@style/SudokuHint"
+            android:text="@string/one_string"
+            android:visibility="@{viewModel.hints[0] ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintBottom_toTopOf="@+id/hint_4"
+            app:layout_constraintEnd_toStartOf="@+id/hint_2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/hint_2"
+            style="@style/SudokuHint"
+            android:text="@string/two_string"
+            android:visibility="@{viewModel.hints[1] ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintBottom_toTopOf="@+id/hint_5"
+            app:layout_constraintEnd_toStartOf="@+id/hint_3"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/hint_1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/hint_3"
+            style="@style/SudokuHint"
+            android:text="@string/three_string"
+            android:visibility="@{viewModel.hints[2] ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintBottom_toTopOf="@+id/hint_6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/hint_2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/hint_4"
+            style="@style/SudokuHint"
+            android:text="@string/four_string"
+            android:visibility="@{viewModel.hints[3] ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintBottom_toTopOf="@+id/hint_7"
+            app:layout_constraintEnd_toStartOf="@+id/hint_5"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hint_1" />
+
+        <TextView
+            android:id="@+id/hint_5"
+            style="@style/SudokuHint"
+            android:text="@string/five_string"
+            android:visibility="@{viewModel.hints[4] ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintBottom_toTopOf="@+id/hint_8"
+            app:layout_constraintEnd_toStartOf="@+id/hint_6"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/hint_4"
+            app:layout_constraintTop_toBottomOf="@+id/hint_2" />
+
+        <TextView
+            android:id="@+id/hint_6"
+            style="@style/SudokuHint"
+            android:text="@string/six_string"
+            android:visibility="@{viewModel.hints[5] ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintBottom_toTopOf="@+id/hint_9"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/hint_5"
+            app:layout_constraintTop_toBottomOf="@+id/hint_3" />
+
+        <TextView
+            android:id="@+id/hint_7"
+            style="@style/SudokuHint"
+            android:text="@string/seven_string"
+            android:visibility="@{viewModel.hints[6] ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/hint_8"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hint_4" />
+
+        <TextView
+            android:id="@+id/hint_8"
+            style="@style/SudokuHint"
+            android:text="@string/eight_string"
+            android:visibility="@{viewModel.hints[7] ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/hint_9"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/hint_7"
+            app:layout_constraintTop_toBottomOf="@+id/hint_5" />
+
+        <TextView
+            android:id="@+id/hint_9"
+            style="@style/SudokuHint"
+            android:text="@string/nine_string"
+            android:visibility="@{viewModel.hints[8] ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/hint_8"
+            app:layout_constraintTop_toBottomOf="@+id/hint_6" />
+
+        <TextView
+            android:id="@+id/value"
+            style="@style/SudokuValue"
+            android:text="@{viewModel.value.toString()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

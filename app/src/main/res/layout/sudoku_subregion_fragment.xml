@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".board.SudokuSubregionFragment">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.android.rzuravel.sudokucv.board.SudokuSubregionViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/sudoku_subregion"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/primaryLightColor">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/sudoku_box_1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_margin=".5dp"
+            android:background="@color/primaryDarkColor"
+            app:layout_constraintBottom_toTopOf="@+id/sudoku_box_4"
+            app:layout_constraintEnd_toStartOf="@+id/sudoku_box_2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/sudoku_box_2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_margin=".5dp"
+            android:background="@color/primaryDarkColor"
+            app:layout_constraintBottom_toTopOf="@+id/sudoku_box_5"
+            app:layout_constraintEnd_toStartOf="@+id/sudoku_box_3"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/sudoku_box_1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/sudoku_box_3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_margin=".5dp"
+            android:background="@color/primaryDarkColor"
+            app:layout_constraintBottom_toTopOf="@+id/sudoku_box_6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/sudoku_box_2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/sudoku_box_4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_margin=".5dp"
+            android:background="@color/primaryDarkColor"
+            app:layout_constraintBottom_toTopOf="@+id/sudoku_box_7"
+            app:layout_constraintEnd_toStartOf="@+id/sudoku_box_5"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sudoku_box_1" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/sudoku_box_5"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_margin=".5dp"
+            android:background="@color/primaryDarkColor"
+            app:layout_constraintBottom_toTopOf="@+id/sudoku_box_8"
+            app:layout_constraintEnd_toStartOf="@+id/sudoku_box_6"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/sudoku_box_4"
+            app:layout_constraintTop_toBottomOf="@+id/sudoku_box_2" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/sudoku_box_6"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_margin=".5dp"
+            android:background="@color/primaryDarkColor"
+            app:layout_constraintBottom_toTopOf="@+id/sudoku_box_9"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/sudoku_box_5"
+            app:layout_constraintTop_toBottomOf="@+id/sudoku_box_3" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/sudoku_box_7"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_margin=".5dp"
+            android:background="@color/primaryDarkColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/sudoku_box_8"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sudoku_box_4" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/sudoku_box_8"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_margin=".5dp"
+            android:background="@color/primaryDarkColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/sudoku_box_9"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/sudoku_box_7"
+            app:layout_constraintTop_toBottomOf="@+id/sudoku_box_5" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/sudoku_box_9"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_margin=".5dp"
+            android:background="@color/primaryDarkColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/sudoku_box_8"
+            app:layout_constraintTop_toBottomOf="@+id/sudoku_box_6" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

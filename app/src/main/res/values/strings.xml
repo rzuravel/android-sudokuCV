@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">SudokuCV</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="empty_placeholder">" "</string>
+    <string name="dummy_value">0</string>
+    <string name="one_string">1</string>
+    <string name="two_string">2</string>
+    <string name="three_string">3</string>
+    <string name="four_string">4</string>
+    <string name="five_string">5</string>
+    <string name="six_string">6</string>
+    <string name="seven_string">7</string>
+    <string name="eight_string">8</string>
+    <string name="nine_string">9</string>
+    <string name="play">play</string>
+    <string name="cancel_button">Cancel Button</string>
+    <string name="hint_toggle_button">Hint Toggle Button</string>
+</resources>

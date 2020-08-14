@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.android.rzuravel.sudokucv.board.ValueSelectViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@android:color/transparent"
+        tools:context=".board.ValueSelectDialogFragment">
+
+        <TextView
+            android:id="@+id/value_select_one"
+            style="@style/sudokuValueSelect"
+            android:clickable="true"
+            android:onClick="@{() -> viewModel.onClick(1)}"
+            app:background="@{viewModel.hints[0]}"
+            android:text="@string/one_string"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/value_select_two"
+            style="@style/sudokuValueSelect"
+            android:clickable="true"
+            android:onClick="@{() -> viewModel.onClick(2)}"
+            app:background="@{viewModel.hints[1]}"
+            android:text="@string/two_string"
+            app:layout_constraintStart_toEndOf="@+id/value_select_one"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/value_select_three"
+            style="@style/sudokuValueSelect"
+            android:clickable="true"
+            android:onClick="@{() -> viewModel.onClick(3)}"
+            app:background="@{viewModel.hints[2]}"
+            android:text="@string/three_string"
+            app:layout_constraintStart_toEndOf="@+id/value_select_two"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/value_select_four"
+            style="@style/sudokuValueSelect"
+            android:clickable="true"
+            android:onClick="@{() -> viewModel.onClick(4)}"
+            app:background="@{viewModel.hints[3]}"
+            android:text="@string/four_string"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/value_select_one" />
+
+        <TextView
+            android:id="@+id/value_select_five"
+            style="@style/sudokuValueSelect"
+            android:clickable="true"
+            android:onClick="@{() -> viewModel.onClick(5)}"
+            app:background="@{viewModel.hints[4]}"
+            android:text="@string/five_string"
+            app:layout_constraintStart_toEndOf="@+id/value_select_four"
+            app:layout_constraintTop_toBottomOf="@+id/value_select_two" />
+
+        <TextView
+            android:id="@+id/value_select_six"
+            style="@style/sudokuValueSelect"
+            android:clickable="true"
+            android:onClick="@{() -> viewModel.onClick(6)}"
+            app:background="@{viewModel.hints[5]}"
+            android:text="@string/six_string"
+            app:layout_constraintStart_toEndOf="@+id/value_select_five"
+            app:layout_constraintTop_toBottomOf="@+id/value_select_three" />
+
+        <TextView
+            android:id="@+id/value_select_seven"
+            style="@style/sudokuValueSelect"
+            android:clickable="true"
+            android:onClick="@{() -> viewModel.onClick(7)}"
+            app:background="@{viewModel.hints[6]}"
+            android:text="@string/seven_string"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/value_select_four" />
+
+        <TextView
+            android:id="@+id/value_select_eight"
+            style="@style/sudokuValueSelect"
+            android:clickable="true"
+            android:onClick="@{() -> viewModel.onClick(8)}"
+            app:background="@{viewModel.hints[7]}"
+            android:text="@string/eight_string"
+            app:layout_constraintStart_toEndOf="@+id/value_select_seven"
+            app:layout_constraintTop_toBottomOf="@+id/value_select_five" />
+
+        <TextView
+            android:id="@+id/value_select_nine"
+            style="@style/sudokuValueSelect"
+            android:clickable="true"
+            android:onClick="@{() -> viewModel.onClick(9)}"
+            app:background="@{viewModel.hints[8]}"
+            android:text="@string/nine_string"
+            app:layout_constraintStart_toEndOf="@+id/value_select_eight"
+            app:layout_constraintTop_toBottomOf="@+id/value_select_six" />
+
+
+        <FrameLayout
+            android:id="@+id/value_select_hint_toggle"
+            style="@style/sudokuValueSelect"
+            android:clickable="true"
+            android:onClick="@{() -> viewModel.onHintToggle()}"
+            app:background="@{viewModel.hintToggle}"
+            app:layout_constraintEnd_toStartOf="@+id/value_select_cancel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/value_select_seven">
+            <ImageView
+                android:foreground="@drawable/baseline_edit_24"
+                android:contentDescription="@string/hint_toggle_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleX=".7"
+                android:scaleY=".7"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/value_select_cancel"
+            style="@style/sudokuValueSelect"
+            android:clickable="true"
+            android:onClick="@{() -> viewModel.onClick(0)}"
+            android:background="@drawable/value_select_background"
+            android:textColor="@color/secondaryTextColor"
+            app:layout_constraintEnd_toStartOf="@+id/value_select_nine"
+            app:layout_constraintStart_toEndOf="@id/value_select_seven"
+            app:layout_constraintTop_toBottomOf="@+id/value_select_eight">
+            <ImageView
+                android:contentDescription="@string/cancel_button"
+                android:foreground="@drawable/baseline_close_24"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleX=".7"
+                android:scaleY=".7"/>
+        </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
