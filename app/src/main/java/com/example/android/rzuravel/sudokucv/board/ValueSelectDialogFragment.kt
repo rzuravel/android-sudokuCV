@@ -46,7 +46,7 @@ class ValueSelectDialogFragment(inHints: BooleanArray) : DialogFragment() {
         binding.lifecycleOwner = this
 
         viewModel.valueSelectEvent.observe(viewLifecycleOwner, Observer { finished ->
-            if (finished) onClick(viewModel.value.value!!, viewModel.hints.value!!)
+            if (finished) onClick()
         })
 
         return binding.root
@@ -59,13 +59,18 @@ class ValueSelectDialogFragment(inHints: BooleanArray) : DialogFragment() {
         return dialog
     }
 
-    private fun onClick(value:Int, hints: BooleanArray) {
+    override fun onDestroy() {
         val bundle = Bundle()
-        bundle.putInt(VALUE_SELECT_INT, value)
-        bundle.putBooleanArray(VALUE_SELECT_HINTS, hints)
+        bundle.putInt(VALUE_SELECT_INT, viewModel.value.value?:0)
+        bundle.putBooleanArray(VALUE_SELECT_HINTS, viewModel.hints.value)
         val intent = Intent()
         intent.putExtras(bundle)
         targetFragment?.onActivityResult(targetRequestCode, Activity.RESULT_OK, intent)
+
+        super.onDestroy()
+    }
+
+    private fun onClick() {
         this.dismiss()
     }
 }
