@@ -45,17 +45,17 @@ class SudokuSubregionFragment(inSubregion: Int) : Fragment() {
         val startRow = subregionStartRow(subregion)
         val startColumn = subregionStartColumn(subregion)
 
-        transaction.add(R.id.sudoku_box_1, SudokuBoxFragment.newInstance(startRow, startColumn))
-        transaction.add(R.id.sudoku_box_2, SudokuBoxFragment.newInstance(startRow,startColumn + 1))
-        transaction.add(R.id.sudoku_box_3, SudokuBoxFragment.newInstance(startRow,startColumn + 2))
+        transaction.add(R.id.sudoku_box_1, SudokuBoxFragment.newInstance(startRow, startColumn, subregion))
+        transaction.add(R.id.sudoku_box_2, SudokuBoxFragment.newInstance(startRow,startColumn + 1, subregion))
+        transaction.add(R.id.sudoku_box_3, SudokuBoxFragment.newInstance(startRow,startColumn + 2, subregion))
 
-        transaction.add(R.id.sudoku_box_4, SudokuBoxFragment.newInstance(startRow + 1, startColumn))
-        transaction.add(R.id.sudoku_box_5, SudokuBoxFragment.newInstance(startRow + 1,startColumn + 1))
-        transaction.add(R.id.sudoku_box_6, SudokuBoxFragment.newInstance(startRow + 1,startColumn + 2))
+        transaction.add(R.id.sudoku_box_4, SudokuBoxFragment.newInstance(startRow + 1, startColumn, subregion))
+        transaction.add(R.id.sudoku_box_5, SudokuBoxFragment.newInstance(startRow + 1,startColumn + 1, subregion))
+        transaction.add(R.id.sudoku_box_6, SudokuBoxFragment.newInstance(startRow + 1,startColumn + 2, subregion))
 
-        transaction.add(R.id.sudoku_box_7, SudokuBoxFragment.newInstance(startRow + 2, startColumn))
-        transaction.add(R.id.sudoku_box_8, SudokuBoxFragment.newInstance(startRow + 2, startColumn + 1))
-        transaction.add(R.id.sudoku_box_9, SudokuBoxFragment.newInstance(startRow + 2, startColumn + 2))
+        transaction.add(R.id.sudoku_box_7, SudokuBoxFragment.newInstance(startRow + 2, startColumn, subregion))
+        transaction.add(R.id.sudoku_box_8, SudokuBoxFragment.newInstance(startRow + 2, startColumn + 1, subregion))
+        transaction.add(R.id.sudoku_box_9, SudokuBoxFragment.newInstance(startRow + 2, startColumn + 2, subregion))
 
         transaction.commit()
 

@@ -16,14 +16,15 @@ import com.example.android.rzuravel.sudokucv.board.ValueSelectDialogFragment.Com
 import com.example.android.rzuravel.sudokucv.databinding.SudokuBoxFragmentBinding
 import kotlinx.android.synthetic.main.sudoku_box_fragment.*
 
-class SudokuBoxFragment(inRow: Int, inColumn: Int) : Fragment() {
+class SudokuBoxFragment(inRow: Int, inColumn: Int, inSubregion: Int) : Fragment() {
 
     companion object {
-        fun newInstance(row: Int, column: Int) = SudokuBoxFragment(row, column)
+        fun newInstance(row: Int, column: Int, subregion: Int) = SudokuBoxFragment(row, column, subregion)
     }
 
     private val row = inRow
     private val column = inColumn
+    private val subregion = inSubregion
     private lateinit var viewModel: SudokuBoxViewModel
     private lateinit var binding: SudokuBoxFragmentBinding
 
@@ -39,7 +40,7 @@ class SudokuBoxFragment(inRow: Int, inColumn: Int) : Fragment() {
             false
         )
 
-        viewModel = ViewModelProvider(this, SudokuBoxViewModelFactory(row, column)).get(SudokuBoxViewModel::class.java)
+        viewModel = ViewModelProvider(this, SudokuBoxViewModelFactory(row, column, subregion)).get(SudokuBoxViewModel::class.java)
 
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
