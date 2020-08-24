@@ -8,15 +8,15 @@ class ValueSelectViewModel(inHints: BooleanArray) : ViewModel() {
     val valueSelectEvent: LiveData<Boolean>
         get() = _valueSelectEvent
 
-    private val _value = MutableLiveData<Int>(0)
+    private val _value = MutableLiveData(0)
     val value: LiveData<Int>
         get() = _value
 
-    private val _hintToggle = MutableLiveData<Boolean>(false)
+    private val _hintToggle = MutableLiveData(false)
     val hintToggle: LiveData<Boolean>
         get() = _hintToggle
 
-    private val _hints = MutableLiveData<BooleanArray>(inHints)
+    private val _hints = MutableLiveData(inHints)
     val hints: LiveData<BooleanArray>
         get() = _hints
 

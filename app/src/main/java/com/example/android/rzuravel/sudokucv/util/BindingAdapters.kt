@@ -2,7 +2,6 @@ package com.example.android.rzuravel.sudokucv.util
 
 import android.view.View
 import androidx.core.content.ContextCompat
-import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.BindingAdapter
 import com.example.android.rzuravel.sudokucv.R.*
 

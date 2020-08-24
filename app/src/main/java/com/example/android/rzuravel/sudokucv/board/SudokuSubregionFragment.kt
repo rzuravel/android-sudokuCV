@@ -1,19 +1,14 @@
 package com.example.android.rzuravel.sudokucv.board
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
 import com.example.android.rzuravel.sudokucv.R
-import com.example.android.rzuravel.sudokucv.databinding.SudokuBoxFragmentBinding
 import com.example.android.rzuravel.sudokucv.databinding.SudokuSubregionFragmentBinding
-import kotlinx.android.synthetic.main.sudoku_subregion_fragment.*
 
 class SudokuSubregionFragment(inSubregion: Int) : Fragment() {
 

@@ -1,7 +1,6 @@
 package com.example.android.rzuravel.sudokucv.board
 
 
-import android.util.Log
 import androidx.lifecycle.*
 import com.example.android.rzuravel.sudokucv.game.SudokuGameManager
 import java.lang.IllegalArgumentException
@@ -11,7 +10,7 @@ class SudokuBoxViewModel(inRow: Int, inColumn: Int, inSubregion: Int) : ViewMode
     val value: LiveData<Int>
         get() = _value
 
-    private val _hints = MutableLiveData<BooleanArray>(BooleanArray(9) { true })
+    private val _hints = MutableLiveData(BooleanArray(9) { true })
     val hints: LiveData<BooleanArray>
         get() = _hints
 

@@ -45,7 +45,7 @@ class ValueSelectDialogFragment(inHints: BooleanArray) : DialogFragment() {
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
 
-        viewModel.valueSelectEvent.observe(viewLifecycleOwner, Observer { finished ->
+        viewModel.valueSelectEvent.observe(viewLifecycleOwner, { finished ->
             if (finished) onClick()
         })
 
