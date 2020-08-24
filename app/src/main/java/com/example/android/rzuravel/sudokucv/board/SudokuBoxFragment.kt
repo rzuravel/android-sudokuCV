@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.android.rzuravel.sudokucv.R
 import com.example.android.rzuravel.sudokucv.board.ValueSelectDialogFragment.Companion.VALUE_SELECT_INT
@@ -42,8 +43,8 @@ class SudokuBoxFragment(inRow: Int, inColumn: Int, inSubregion: Int) : Fragment(
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
-        viewModel.onClickEvent.observe(viewLifecycleOwner, { finished ->
-            if (finished) onClick()
+        viewModel.onClickEvent.observe(viewLifecycleOwner, Observer { finished ->
+            if (finished == true) onClick()
         })
 
         return binding.root
