@@ -1,11 +1,21 @@
 package com.example.android.rzuravel.sudokucv.board
 
 
+import android.app.Application
+import android.content.Context
 import androidx.lifecycle.*
+import com.example.android.rzuravel.sudokucv.database.SudokuBoxData
+import com.example.android.rzuravel.sudokucv.database.SudokuBoxDatabase
+import com.example.android.rzuravel.sudokucv.database.SudokuBoxRepository
 import com.example.android.rzuravel.sudokucv.game.SudokuGameManager
 import java.lang.IllegalArgumentException
 
-class SudokuBoxViewModel(inRow: Int, inColumn: Int, inSubregion: Int) : ViewModel() {
+class SudokuBoxViewModel(context: Context, private val row: Int, private val column: Int, private val subregion: Int) : ViewModel() {
+    private lateinit var repository: SudokuBoxRepository
+
+    private lateinit var _sudokuBox: LiveData<SudokuBoxData>
+    var
+
     private val _value = MutableLiveData<Int>()
     val value: LiveData<Int>
         get() = _value
@@ -14,16 +24,14 @@ class SudokuBoxViewModel(inRow: Int, inColumn: Int, inSubregion: Int) : ViewMode
     val hints: LiveData<BooleanArray>
         get() = _hints
 
-    private val _row = inRow
-    private val _column = inColumn
-    private val _subregion = inSubregion
-
     private val _onClickEvent = MutableLiveData<Boolean>()
     val onClickEvent: LiveData<Boolean>
         get() = _onClickEvent
 
     init {
-        SudokuGameManager.addViewModel(this, _row, _column, _subregion)
+        val sudokuBoxDao = SudokuBoxDatabase.getInstance(context, viewModelScope).sudokuBoxDatabaseDao
+        repository = SudokuBoxRepository(sudokuBoxDao)
+        SudokuGameManager.addViewModel(this, row, column, subregion)
     }
 
     fun onClick() {
@@ -44,7 +52,7 @@ class SudokuBoxViewModel(inRow: Int, inColumn: Int, inSubregion: Int) : ViewMode
                 _value.value = incomingValue
                 _hints.value = BooleanArray(9) { false }
 
-                SudokuGameManager.onValueAdded(incomingValue, _row, _column, _subregion)
+                SudokuGameManager.onValueAdded(incomingValue, row, column, subregion)
             }
         }
     }
@@ -59,10 +67,10 @@ class SudokuBoxViewModel(inRow: Int, inColumn: Int, inSubregion: Int) : ViewMode
     }
 }
 
-class SudokuBoxViewModelFactory(private val row: Int, private val column: Int, private val subregion: Int) : ViewModelProvider.Factory {
+class SudokuBoxViewModelFactory(private val context: Context, private val row: Int, private val column: Int, private val subregion: Int) : ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(SudokuBoxViewModel::class.java)) {
-            return SudokuBoxViewModel(row, column, subregion) as T
+            return SudokuBoxViewModel(context, row, column, subregion) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

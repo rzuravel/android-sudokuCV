@@ -1,6 +1,7 @@
 package com.example.android.rzuravel.sudokucv.board
 
 import android.app.Activity
+import android.app.Application
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -38,7 +39,7 @@ class SudokuBoxFragment(inRow: Int, inColumn: Int, inSubregion: Int) : Fragment(
             false
         )
 
-        viewModel = ViewModelProvider(this, SudokuBoxViewModelFactory(row, column, subregion)).get(SudokuBoxViewModel::class.java)
+        viewModel = ViewModelProvider(this, SudokuBoxViewModelFactory(this.context!!, row, column, subregion)).get(SudokuBoxViewModel::class.java)
 
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner

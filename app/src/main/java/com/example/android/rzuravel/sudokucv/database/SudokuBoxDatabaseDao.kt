@@ -18,11 +18,11 @@ interface SudokuBoxDatabaseDao {
     fun get(key: Int): SudokuBoxData?
 
     @Query("SELECT * FROM ${SudokuBoxDatabase.DB_NAME} WHERE `row` = :row AND `column` = :column")
-    fun get(row: Int, column: Int): SudokuBoxData?
+    fun get(row: Int, column: Int): LiveData<SudokuBoxData?>
 
     @Query("DELETE FROM ${SudokuBoxDatabase.DB_NAME}")
     fun clear()
 
     @Query("SELECT * FROM ${SudokuBoxDatabase.DB_NAME} ORDER BY boxId ASC")
-    fun getAllBoxes(): List<SudokuBoxData>
+    fun getAllBoxes(): LiveData<List<SudokuBoxData>>
 }
