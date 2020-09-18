@@ -16,4 +16,9 @@
     <string name="play">play</string>
     <string name="cancel_button">Cancel Button</string>
     <string name="hint_toggle_button">Hint Toggle Button</string>
+    <string name="upload_puzzle">upload puzzle</string>
+    <string name="upload">upload</string>
+    <string name="new_string">new</string>
+    <string name="continue_string">continue</string>
+    <string name="take_photo">Take Photo</string>
 </resources>

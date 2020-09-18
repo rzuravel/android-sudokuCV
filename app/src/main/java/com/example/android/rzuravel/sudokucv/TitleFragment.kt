@@ -28,8 +28,12 @@ class TitleFragment : Fragment() {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.title_fragment, container, false)
 
-        binding.titlePlayButton.setOnClickListener { view: View ->
+        binding.titleNewButton.setOnClickListener { view: View ->
             view.findNavController().navigate(R.id.action_titleFragment_to_gameFragment)
+        }
+
+        binding.titleUploadButton.setOnClickListener { view: View ->
+            view.findNavController().navigate(R.id.action_titleFragment_to_cameraFragment)
         }
 
         return binding.root
